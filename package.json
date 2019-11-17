@@ -1,0 +1,23 @@
+{
+  "name": "test_dark_sky",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "selenium-standalone": "^6.16.0",
+    "webdriverio": "^4.14.4"
+  },
+  "devDependencies": {
+    "wdio-chai-plugin": "0.0.2",
+    "wdio-dot-reporter": "0.0.10",
+    "wdio-mocha-framework": "^0.6.4",
+    "wdio-selenium-standalone-service": "0.0.12",
+    "wdio-spec-reporter": "^0.1.5"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/wdio wdio.conf.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
