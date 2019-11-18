@@ -1,8 +1,8 @@
 let main = require('../page_object/main_page_object');
 
 describe('darksky.net page', function () {
+    browser.url('/');
     it('should have the right title', function () {
-        browser.url('/');
         var title = browser.getTitle();
         expect(title).to.include("Dark Sky");
     });
@@ -43,7 +43,25 @@ describe('darksky.net page', function () {
         });
     });
     it('should have search bar', () => {
-
-    })
-
+        expect(main.searchHeader.isVisible()).to.be.true;
+    });
+    describe('search bar', () => {
+        it('should have current location button', () => {
+            expect(main.currentLocation.isVisible()).to.be.true;
+        });
+        it('should have search bar', () => {
+            expect(main.searchForm.isVisible()).to.be.true;
+        });
+        it('should have search button', () => {
+            expect(main.searchButton.isVisible()).to.be.true;
+        });
+        it('should have units selector', () => {
+            expect(main.unitsSelector.isVisible()).to.be.true;
+            expect(main.unitsOptionsMenu.isVisible()).to.be.false;
+        });
+        it('should have language selector', () => {
+            expect(main.languageSelector.isVisible()).to.be.true;
+        })
+    });
+    //TODO check visibility of current details wrapper and it's elements
 });
