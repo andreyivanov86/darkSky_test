@@ -20,6 +20,10 @@ class Main {
   get unitsOptionsMenu() { return $('#units-container .selectric-units .selectric-hide-select'); }
   get uitsSecondOption() { return $("#header .selectric-units [data-index='1']"); }
   get languageSelector() { return $('#header .selectric-language .selectric'); }
+  inputLocation(location) {
+    this.searchFormInputField.setValue(location);
+    this.searchButton.click();
+  }
   //current details wrapper
   get windDetial() { return $('.wind'); }
 }

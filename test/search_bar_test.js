@@ -9,6 +9,7 @@ describe('search header', function () {
       expect(main.windDetial.getText()).to.include('mph');
     });
   });
+  //TODO check all options using $$
   describe('when I click units options and change to C, m/s', () => {
     it('units menu should become visible', () => {
       main.unitsSelector.click();
@@ -28,19 +29,20 @@ describe('search header', function () {
       expect(main.searchFormInputField.getValue()).to.equal('Searching...');
     });
   });
-  describe('when I input Boston', () => {
-    it.only('saved locations should popup', () => {
-
-
+  describe('when I search new locations (Boston, Chicago)', () => {
+    it('should present correct locations', () => {
+      let location = 'Boston'
+      main.inputLocation(location);
+      expect(main.searchFormInputField.getValue()).to.include(location);
+      location = 'Chicago';
+      main.inputLocation(location);
+      expect(main.searchFormInputField.getValue()).to.include(location);
     });
+    it('should show saved locations', () => {
+      main.searchFormInputField.click();
+      //TODO add wait unitll drop list is visible
+      expect(main.savedLocationsList.getAttribute('class')).to.equal('visible');
+      expect($("#savedLocations .inner .location-container:nth-of-type(1)").getText()).to.include('Boston');
+    })
   });
-  //TODO test saved locations dropdown menu
-    //search locations
-      //input Boston
-      //click search
-      //input Chicago
-      //hit Enter
-    //click on search Bar
-      //pop up loactions should contain boston and chicago
-
 });
