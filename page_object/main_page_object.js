@@ -11,8 +11,10 @@ class Main {
   get twitterLogo() { return $("//nav//img[@alt='Twitter Logo']"); }
   // search bar
   get searchHeader() { return $('#header'); }
-  get currentLocation() { return $('.currentLocationButton'); }
+  get currentLocationButton() { return $('.currentLocationButton'); }
+  get savedLocationsList() { return $('#savedLocations') };
   get searchForm() { return $('#searchForm'); }
+  get searchFormInputField() { return $("//form[@id='searchForm']/input"); }
   get searchButton() { return $("//form//img[@alt='Search Button']"); }
   get unitsSelector() { return $('#header .selectric-units'); }
   get unitsOptionsMenu() { return $('#units-container .selectric-units .selectric-hide-select'); }

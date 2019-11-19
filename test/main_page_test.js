@@ -47,7 +47,7 @@ describe('darksky.net page', function () {
     });
     describe('search bar', () => {
         it('should have current location button', () => {
-            expect(main.currentLocation.isVisible()).to.be.true;
+            expect(main.currentLocationButton.isVisible()).to.be.true;
         });
         it('should have search bar', () => {
             expect(main.searchForm.isVisible()).to.be.true;
