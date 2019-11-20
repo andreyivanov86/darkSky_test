@@ -28,6 +28,9 @@ class Main {
   get windDetial() { return $('.wind'); }
   get humidityDetail() { return $('.humidity'); }
   get dew_pointDetail() { return $('.dew_point'); }
+  get uv_indexDetail() { return $('.uv_index'); }
+  get visibilityDetail() { return $('.visibility') }
+  get pressureDetail() { return $('.pressure'); }
 }
 module.exports = new Main();
 //TODO create page object model for main page elements

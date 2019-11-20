@@ -63,9 +63,24 @@ describe('darksky.net page', function () {
             expect(main.languageSelector.isVisible()).to.be.true;
         })
     });
-    describe.only('current details', () => {
-        it('should have wind speed, unit, direction', () => {
-            expect(main.windDetial.isVisible());
+    describe('current details', () => {
+        it('should have wind', () => {
+            expect(main.windDetial.isVisible()).to.be.true;
+        });
+        it('should have humidity', () => {
+            expect(main.humidityDetail.isVisible()).to.be.true;
+        });
+        it('should have dew point', () => {
+            expect(main.dew_pointDetail.isVisible()).to.be.true;
+        });
+        it('should have uv index', () => {
+            expect(main.uv_indexDetail.isVisible()).to.be.true;
+        });
+        it('should have visibility', () => {
+            expect(main.visibilityDetail.isVisible()).to.be.true;
+        });
+        it('should have pressure', () => {
+            expect(main.pressureDetail.isVisible()).to.be.true;
         });
     })
     //TODO check visibility of current details wrapper and it's elements
