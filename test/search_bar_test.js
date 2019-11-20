@@ -10,9 +10,10 @@ describe('search header', function () {
     });
   });
   //TODO check all options using $$
-  describe('when I click units options and change to C, m/s', () => {
+  describe.only('when I click units options and change to C, m/s', () => {
     it('units menu should become visible', () => {
       main.unitsSelector.click();
+      console.log("units options",$$('.selectric-items ul'));
       expect(main.unitsSelector.getAttribute('class')).to.include('selectric-open selectric-focus');
     });
     it('units should change in current details', () => {
