@@ -26,6 +26,8 @@ class Main {
   }
   //current details wrapper
   get windDetial() { return $('.wind'); }
+  get humidityDetail() { return $('.humidity'); }
+  get dew_pointDetail() { return $('.dew_point'); }
 }
 module.exports = new Main();
 //TODO create page object model for main page elements

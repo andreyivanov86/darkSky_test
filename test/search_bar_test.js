@@ -40,9 +40,17 @@ describe('search header', function () {
     });
     it('should show saved locations', () => {
       main.searchFormInputField.click();
-      //TODO add wait unitll drop list is visible
+      browser.waitUntil(() => {
+        return main.savedLocationsList.isVisible() == true;
+      });
+      expect(main.savedLocationsList.isVisible()).to.be.true;
       expect(main.savedLocationsList.getAttribute('class')).to.equal('visible');
       expect($("#savedLocations .inner .location-container:nth-of-type(1)").getText()).to.include('Boston');
-    })
+    });
+    it('should remove saved location', () => {
+      $("#savedLocations .location-container:nth-of-type(1) .delete-location").click();
+      main.searchFormInputField.click();
+      expect($("#savedLocations .inner .location-container:nth-of-type(1)").getText()).to.not.include('Boston');
+    });
   });
 });

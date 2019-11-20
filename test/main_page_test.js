@@ -63,5 +63,10 @@ describe('darksky.net page', function () {
             expect(main.languageSelector.isVisible()).to.be.true;
         })
     });
+    describe.only('current details', () => {
+        it('should have wind speed, unit, direction', () => {
+            expect(main.windDetial.isVisible());
+        });
+    })
     //TODO check visibility of current details wrapper and it's elements
 });
