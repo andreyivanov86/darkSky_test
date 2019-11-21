@@ -24,6 +24,10 @@ class Main {
     this.searchFormInputField.setValue(location);
     this.searchButton.click();
   }
+  chooseUnitOption(index) {
+    this.unitsSelector.click();
+    $("#header .selectric-units [data-index='" + index + "']").click()
+  }
   //current details wrapper
   get windDetial() { return $('.wind'); }
   get humidityDetail() { return $('.humidity'); }

@@ -9,11 +9,22 @@ describe('search header', function () {
       expect(main.windDetial.getText()).to.include('mph');
     });
   });
-  //TODO check all options using $$
-  describe.only('when I click units options and change to C, m/s', () => {
+  describe('units options list', () => {
+    it('should have 4 options', () => {
+      //get li idexes
+      let unitOptionsList = $$('.selectric-items ul')
+      unitOptionsList.forEach(unitOption => {
+        //for li at index get text
+        let unitOptionText = $("#header .options > div:nth-of-type(1) [data-index='" + unitOption.index + "']").getHTML().slice(-6, -5);
+        //function that clicks on unit dropdown and chooses option iteratively
+        main.chooseUnitOption(unitOption.index);
+        expect(main.windDetial.getText()).to.include(unitOptionText);
+      });
+    });
+  });
+  describe('when I click units options and change to C, m/s', () => {
     it('units menu should become visible', () => {
       main.unitsSelector.click();
-      console.log("units options",$$('.selectric-items ul'));
       expect(main.unitsSelector.getAttribute('class')).to.include('selectric-open selectric-focus');
     });
     it('units should change in current details', () => {
@@ -24,6 +35,7 @@ describe('search header', function () {
   it('should have current location', () => {
     expect(main.searchFormInputField.getValue()).to.not.equal('');
   });
+
   describe('when current location button is clicked', () => {
     it('search bar input should change to Searching...', () => {
       main.currentLocationButton.click();
@@ -55,3 +67,4 @@ describe('search header', function () {
     });
   });
 });
+//TODO fix the saved locations
