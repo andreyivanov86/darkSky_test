@@ -1,7 +1,12 @@
 let main = require('../page_object/main_page_object');
-
-describe('darksky.net page', function () {
+before(() => {
     browser.url('/');
+    browser.waitUntil(() => {
+        return main.navBar.isVisible() == true;
+    });
+});
+describe('darksky.net page', function () {
+
     it('should have the right title', function () {
         var title = browser.getTitle();
         expect(title).to.include("Dark Sky");

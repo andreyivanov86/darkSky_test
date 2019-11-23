@@ -17,15 +17,29 @@ class Main {
   get searchFormInputField() { return $("//form[@id='searchForm']/input"); }
   get searchButton() { return $("//form//img[@alt='Search Button']"); }
   get unitsSelector() { return $('#header .selectric-units'); }
-  get unitsOptionsMenu() { return $('#units-container .selectric-units .selectric-hide-select'); }
+  get unitsOptionsMenu() { return $('#header .options div:nth-of-type(1) .selectric-scroll'); }
   get uitsSecondOption() { return $("#header .selectric-units [data-index='1']"); }
   get languageSelector() { return $('#header .selectric-language .selectric'); }
+  //search new location and wait unitl its founf
   inputLocation(location) {
     this.searchFormInputField.setValue(location);
     this.searchButton.click();
+    browser.waitUntil(() => {
+      return this.searchFormInputField.getValue().includes(location) == true;
+    });
+  }
+  //click on search bar and wait unitl saved locations menu is visible
+  revealSavedLocations() {
+    this.searchFormInputField.click();
+    browser.waitUntil(() => {
+      return this.savedLocationsList.isVisible() == true;
+    });
   }
   chooseUnitOption(index) {
     this.unitsSelector.click();
+    browser.waitUntil(() => {
+      return this.unitsOptionsMenu.isVisible() == true;
+    });
     $("#header .selectric-units [data-index='" + index + "']").click()
   }
   //current details wrapper
