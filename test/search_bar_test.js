@@ -1,4 +1,6 @@
 let main = require('../page_object/main_page_object');
+let units = require('../test_data/units_options');
+
 before(() => {
   browser.url('/');
   browser.waitUntil(() => {
@@ -45,19 +47,6 @@ describe('search header', function () {
       expect(main.windDetial.getText()).to.include('mph');
     });
   });
-  describe('units options list', () => {
-    it('should have 4 options', () => {
-      //get li idexes
-      let unitOptionsList = $$('.selectric-items ul')
-      unitOptionsList.forEach(unitOption => {
-        //for li at index get text
-        let unitOptionText = $("#header .options > div:nth-of-type(1) [data-index='" + unitOption.index + "']").getHTML().slice(-6, -5);
-        //function that clicks on unit dropdown and chooses option iteratively
-        main.chooseUnitOption(unitOption.index);
-        expect(main.windDetial.getText()).to.include(unitOptionText);
-      });
-    });
-  });
   describe('when I click units options and change to C, m/s', () => {
     it('units menu should become visible', () => {
       main.unitsSelector.click();
@@ -66,7 +55,18 @@ describe('search header', function () {
     it('units should change in current details', () => {
       main.uitsSecondOption.click();
       expect(main.windDetial.getText()).to.include('m/s');
-    })
+    });
+  });
+  describe('units options list', () => {
+    it('should have 4 options', () => {
+      //get li indexes
+      let unitOptionsList = $$('.selectric-items ul')
+      unitOptionsList.forEach(unitOption => {
+        //function that clicks on unit dropdown and chooses option iteratively
+        main.chooseUnitOption(unitOption.index);
+        expect(main.windDetial.getText()).to.include(units[unitOption.index].wind);
+      });
+    });
   });
 });
 //TODO fix the saved locations
