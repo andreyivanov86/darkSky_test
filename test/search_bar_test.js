@@ -18,8 +18,8 @@ describe('search header', function () {
     it('should present correct locations', () => {
       main.inputLocation('Boston');
       expect(main.searchFormInputField.getValue()).to.include('Boston');
-      main.inputLocation('Chicago');
-      expect(main.searchFormInputField.getValue()).to.include('Chicago');
+      main.inputLocation('Miami');
+      expect(main.searchFormInputField.getValue()).to.include('Miami');
     });
     it('should show saved locations', () => {
       main.revealSavedLocations();
@@ -69,4 +69,4 @@ describe('search header', function () {
     });
   });
 });
-//TODO fix the saved locations
+
