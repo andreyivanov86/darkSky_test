@@ -2,8 +2,9 @@ class Login {
   get loginEmail() { return $('#email'); }
   get loginPassword() { return $('#password'); }
   get loginButton() { return $('button'); }
+  get errorMsg() {return $('.error');}
 
-  loginOperaion(email, password) {
+  loginOperation(email, password) {
     if (email) {
       this.loginEmail.setValue(email);
     } else {
