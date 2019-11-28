@@ -2,7 +2,7 @@ let main = require('../page_object/main_page_object');
 let units = require('../test_data/units_options');
 
 before(() => {
-  browser.url('/');
+  main.load();
   browser.waitUntil(() => {
     return main.navBar.isVisible() == true;
   });

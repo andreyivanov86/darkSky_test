@@ -6,6 +6,7 @@ describe('login page', () => {
     login.load();
   });
   it('should be able to land on login page', () => {
+    expect(browser.getUrl()).to.include(login.path);//using base page to access path
     expect(login.loginEmail.isVisible()).to.be.true;
     expect(login.loginPassword.isVisible()).to.be.true;
     expect(login.loginButton.isVisible()).to.be.true;
