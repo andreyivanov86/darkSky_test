@@ -1,4 +1,9 @@
-class Login {
+let Base = require('./base_page.js');
+
+class Login extends Base {
+  constructor() {
+    super('/dev/login');
+  }
   get loginEmail() { return $('#email'); }
   get loginPassword() { return $('#password'); }
   get loginButton() { return $('button'); }

@@ -1,10 +1,13 @@
 let main = require('../page_object/main_page_object');
+
 before(() => {
-    browser.url('/');
+    // browser.url('/');
+    main.load();
     browser.waitUntil(() => {
         return main.navBar.isVisible() == true;
     });
 });
+
 describe('darksky.net page', function () {
 
     it('should have the right title', function () {
@@ -89,4 +92,7 @@ describe('darksky.net page', function () {
         });
     })
     //TODO check visibility of current details wrapper and it's elements
+        // add constructor for page load in base page object
+        //start REST testing
+
 });

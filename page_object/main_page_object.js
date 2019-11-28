@@ -1,4 +1,9 @@
-class Main {
+let Base = require('./base_page.js');
+
+class Main extends Base {
+  constructor() {
+    super('/');
+  }
   //navbar
   get navBar() { return $('nav') }
   get darkSkyLogo() { return $("//nav//img[@alt='Dark Sky Logo']"); }

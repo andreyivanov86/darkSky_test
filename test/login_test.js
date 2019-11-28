@@ -3,7 +3,7 @@ let users = require('../test_data/login_data.js')
 
 describe('login page', () => {
   beforeEach(() => {
-    browser.url('/dev/login');
+    login.load();
   });
   it('should be able to land on login page', () => {
     expect(login.loginEmail.isVisible()).to.be.true;
@@ -25,7 +25,6 @@ describe('login page', () => {
     login.loginOperation(users.user3.email, users.user3.password);
     expect(login.errorMsg.getText()).to.equal('Username and password do not match');
   });
-    //TODO add it block for the case when credentials are incorrect
 });
 
 
