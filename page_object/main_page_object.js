@@ -1,4 +1,5 @@
 let Base = require('./base_page.js');
+let request = require('sync-request');
 
 class Main extends Base {
   constructor() {
@@ -33,6 +34,12 @@ class Main extends Base {
       return this.searchFormInputField.getValue().includes(location) == true;
     });
   }
+  searchCurrentLocation() {
+    this.currentLocationButton.click();
+    browser.waitUntil(() => {
+      return this.searchFormInputField.getValue() != 'Searching...';
+    });
+  }
   //click on search bar and wait unitl saved locations menu is visible
   revealSavedLocations() {
     this.searchFormInputField.click();
@@ -54,6 +61,13 @@ class Main extends Base {
   get uv_indexDetail() { return $('.uv_index'); }
   get visibilityDetail() { return $('.visibility') }
   get pressureDetail() { return $('.pressure'); }
+  //current weather
+  get weatherSummary() { return $('.summary.swap'); }
+
+  getWeather(lat, long) {
+    let res = request('GET', "https://api.darksky.net/forecast/82561398d6aaa5940ac45a35b47191bf/" + lat + "," + long);
+    return JSON.parse(res.getBody().toString('utf8'));
+  }
 }
 module.exports = new Main();
 //TODO create page object model for main page elements
