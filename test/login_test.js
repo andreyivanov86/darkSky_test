@@ -13,7 +13,7 @@ describe('login page', () => {
   });
   it('should be able to login', () => {
     login.loginOperation(users.user1.email, users.user1.password);
-    expect(browser.getUrl()).to.equal('https://darksky.net/dev/account');
+    expect(browser.getUrl()).to.include('/dev/account');
   });
   it('should require email as username and password', () => {
     expect(login.loginEmail.getAttribute('type')).to.equal('email');
