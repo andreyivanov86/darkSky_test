@@ -10,6 +10,7 @@
     "webdriverio": "^4.14.4"
   },
   "devDependencies": {
+    "@wdio/allure-reporter": "^5.16.10",
     "wdio-chai-plugin": "0.0.2",
     "wdio-dot-reporter": "0.0.10",
     "wdio-mocha-framework": "^0.6.4",
