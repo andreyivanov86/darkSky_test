@@ -16,5 +16,21 @@ describe('Current wether', function () {
         let summary = weather.summary;
         expect(main.weatherSummary.getText()).to.include(temperature);
         expect(main.weatherSummary.getText()).to.include(summary);
-    })
+    });
+    it('should show correct temperature and summary for Boston, MA', () => {
+        main.inputLocation('Boston, MA')
+        let weather = main.getWeather(42.360081, -71.058884).currently;
+        let temperature = Math.round(weather.temperature);
+        let summary = weather.summary;
+        expect(main.weatherSummary.getText()).to.include(temperature);
+        expect(main.weatherSummary.getText()).to.include(summary);
+    });
+    it('should show correct temperature and summary for Miami, FL', () => {
+        main.inputLocation('Miami, FL')
+        let weather = main.getWeather(25.761681, -80.191788).currently;
+        let temperature = Math.round(weather.temperature);
+        let summary = weather.summary;
+        expect(main.weatherSummary.getText()).to.include(temperature);
+        expect(main.weatherSummary.getText()).to.include(summary);
+    });
 });
