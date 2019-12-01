@@ -34,7 +34,7 @@ describe('search header', function () {
   });
   describe('when current location button is clicked', () => {
     it('search bar input should change to Searching...', () => {
-      main.searchCurrentLocation();
+      main.currentLocationButton.click();
       expect(main.searchFormInputField.getValue()).to.equal('Searching...');
     });
   });

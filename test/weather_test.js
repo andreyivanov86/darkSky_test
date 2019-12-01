@@ -9,11 +9,8 @@ before(() => {
 });
 
 describe('Current wether', function () {
-    it('should show correct temperature for current location', () => {
-        main.currentLocationButton.click();
-        browser.waitUntil(() => {
-            return main.searchFormInputField.getValue() != 'Searching...';
-        });
+    it('should show correct temperature and summary for current location', () => {
+        main.searchCurrentLocation();
         let weather = main.getWeather(40.58946, -73.95001).currently;
         let temperature = Math.round(weather.temperature);
         let summary = weather.summary;
