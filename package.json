@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "@wdio/allure-reporter": "^5.16.10",
+    "wdio-allure-reporter": "^0.8.3",
     "wdio-chai-plugin": "0.0.2",
     "wdio-dot-reporter": "0.0.10",
     "wdio-mocha-framework": "^0.6.4",
