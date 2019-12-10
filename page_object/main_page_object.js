@@ -1,5 +1,6 @@
 let Base = require('./base_page.js');
 let request = require('sync-request');
+let api_key = require('../test_data/api_key')
 
 class Main extends Base {
   constructor() {
@@ -65,7 +66,7 @@ class Main extends Base {
   get weatherSummary() { return $('.summary.swap'); }
 
   getWeather(lat, long) {
-    let res = request('GET', "https://api.darksky.net/forecast/82561398d6aaa5940ac45a35b47191bf/" + lat + "," + long);
+    let res = request('GET', "https://api.darksky.net/forecast/" + api_key.dark_sky_key + "/" + lat + "," + long);
     return JSON.parse(res.getBody().toString('utf8'));
   }
 }

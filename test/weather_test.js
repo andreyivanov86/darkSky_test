@@ -1,5 +1,6 @@
-let weather = require('../test_data/weather_data.js');
+let locations = require('../test_data/weather_data.js');
 let main = require('../page_object/main_page_object');
+
 
 before(() => {
     main.load();
@@ -18,16 +19,16 @@ describe('Current wether', function () {
         expect(main.weatherSummary.getText()).to.include(summary);
     });
     it('should show correct temperature and summary for Boston, MA', () => {
-        main.inputLocation('Boston, MA')
-        let weather = main.getWeather(42.360081, -71.058884).currently;
+        main.inputLocation(locations.location1.name);
+        let weather = main.getWeather(locations.location1.lat, locations.location1.long).currently;
         let temperature = Math.round(weather.temperature);
         let summary = weather.summary;
         expect(main.weatherSummary.getText()).to.include(temperature);
         expect(main.weatherSummary.getText()).to.include(summary);
     });
     it('should show correct temperature and summary for Miami, FL', () => {
-        main.inputLocation('Miami, FL')
-        let weather = main.getWeather(25.761681, -80.191788).currently;
+        main.inputLocation(locations.location2.name)
+        let weather = main.getWeather(locations.location2.lat, locations.location2.long).currently;
         let temperature = Math.round(weather.temperature);
         let summary = weather.summary;
         expect(main.weatherSummary.getText()).to.include(temperature);
